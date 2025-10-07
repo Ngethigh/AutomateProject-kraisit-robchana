@@ -1079,11 +1079,11 @@ Agent Joint Date
 Data Send Agent 
     Log To Console    Waiting 1.5s For Process..
     Sleep    1.5s
-    # Scroll ไปที่ฟิลด์ Birth date
-    Scroll Element Into View    ${AgentJoin}
-    Wait Until Element Is Visible    ${AgentJoin}    timeout=10s
-    Input Text    ${AgentJoin}    ${AgentJoinValue}
-    Log To Console    Filled Date field with ${AgentJoinValue}
+    # Scroll ไปที่ฟิลด์ Send Agent Fill
+    Scroll Element Into View    ${SendAgent} 
+    Wait Until Element Is Visible    ${SendAgent}     timeout=10s
+    Input Text    ${SendAgent}     ${SendAgentValue}
+    Log To Console    Filled Date field with ${SendAgentValue}
 
 Fill Contact Type
     Log To Console    Waiting 3 seconds before filling data...
