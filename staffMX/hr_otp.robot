@@ -1119,7 +1119,7 @@ Expire Date
 Remark
     Log To Console    Waiting 1.5s For Process..
     Sleep    1.5s
-    # Scroll ไปที่ฟิลด์ Birth date
+    # Scroll ไปที่ฟิลด์ Remark
     Scroll Element Into View    ${RemarkFill} 
     Wait Until Element Is Visible    ${RemarkFill}     timeout=10s
     Input Text    ${RemarkFill}     ${RemarkValue}
