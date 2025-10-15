@@ -1,0 +1,821 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<robot generator="Robot 7.3 (Python 3.13.4 on darwin)" generated="2025-07-17T09:26:05.337272" rpa="false" schemaversion="5">
+<suite id="s1" name="Store" source="/Applications/XAMPP/xamppfiles/htdocs/Robot-Project/Spain/store.robot">
+<test id="s1-t1" name="Create New Distributor Full Form" line="78">
+<kw name="Open And Navigate To Login Page">
+<kw name="Open Browser" owner="SeleniumLibrary">
+<msg time="2025-07-17T09:26:05.518235" level="INFO">Opening browser 'Chrome' to base url 'https://sellin.ox-shop.com/user/login'.</msg>
+<arg>${URL}</arg>
+<arg>${BROWSER}</arg>
+<doc>Opens a new browser instance to the optional ``url``.</doc>
+<status status="PASS" start="2025-07-17T09:26:05.517944" elapsed="3.793742"/>
+</kw>
+<kw name="Maximize Browser Window" owner="SeleniumLibrary">
+<doc>Maximizes current browser window.</doc>
+<status status="PASS" start="2025-07-17T09:26:09.314025" elapsed="0.380567"/>
+</kw>
+<kw name="Wait Until Page Contains Element" owner="SeleniumLibrary">
+<arg>${USERNAME_FIELD}</arg>
+<arg>timeout=10s</arg>
+<doc>Waits until the element ``locator`` appears on the current page.</doc>
+<status status="PASS" start="2025-07-17T09:26:09.695548" elapsed="0.045857"/>
+</kw>
+<status status="PASS" start="2025-07-17T09:26:05.516980" elapsed="4.225491"/>
+</kw>
+<kw name="Input Username">
+<kw name="Input Text" owner="SeleniumLibrary">
+<msg time="2025-07-17T09:26:09.744754" level="INFO">Typing text 'admin' into text field 'id:email'.</msg>
+<arg>${USERNAME_FIELD}</arg>
+<arg>${user}</arg>
+<doc>Types the given ``text`` into the text field identified by ``locator``.</doc>
+<status status="PASS" start="2025-07-17T09:26:09.744377" elapsed="0.300321"/>
+</kw>
+<arg>${USERNAME}</arg>
+<status status="PASS" start="2025-07-17T09:26:09.743713" elapsed="0.301114"/>
+</kw>
+<kw name="Enter Password">
+<kw name="Input Password" owner="SeleniumLibrary">
+<msg time="2025-07-17T09:26:10.045712" level="INFO">Typing password into text field 'id:password'.</msg>
+<msg time="2025-07-17T09:26:10.080188" level="INFO">Temporally setting log level to: NONE</msg>
+<arg>${PASSWORD_FIELD}</arg>
+<arg>${pass}</arg>
+<doc>Types the given password into the text field identified by ``locator``.</doc>
+<status status="PASS" start="2025-07-17T09:26:10.045462" elapsed="0.109922"/>
+</kw>
+<arg>${PASSWORD}</arg>
+<status status="PASS" start="2025-07-17T09:26:10.045074" elapsed="0.110429"/>
+</kw>
+<kw name="Click Sign In Button">
+<kw name="Click Button" owner="SeleniumLibrary">
+<msg time="2025-07-17T09:26:10.156170" level="INFO">Clicking button 'xpath=//button[@type='submit' and contains(text(), 'Sign In')]'.</msg>
+<arg>${SIGN_IN_BUTTON}</arg>
+<doc>Clicks the button identified by ``locator``.</doc>
+<status status="PASS" start="2025-07-17T09:26:10.155977" elapsed="0.497430"/>
+</kw>
+<status status="PASS" start="2025-07-17T09:26:10.155713" elapsed="0.497790"/>
+</kw>
+<kw name="Verify Login Was Successful">
+<kw name="Wait Until Page Contains" owner="SeleniumLibrary">
+<arg>Dashboard</arg>
+<arg>timeout=10s</arg>
+<doc>Waits until ``text`` appears on the current page.</doc>
+<status status="PASS" start="2025-07-17T09:26:10.653907" elapsed="0.010152"/>
+</kw>
+<kw name="Log" owner="BuiltIn">
+<msg time="2025-07-17T09:26:10.664426" level="INFO">Login successful!</msg>
+<arg>Login successful!</arg>
+<doc>Logs the given message with the given level.</doc>
+<status status="PASS" start="2025-07-17T09:26:10.664248" elapsed="0.000219"/>
+</kw>
+<kw name="Log To Console" owner="BuiltIn">
+<arg>Waiting for 5 seconds...</arg>
+<doc>Logs the given message to the console.</doc>
+<status status="PASS" start="2025-07-17T09:26:10.664709" elapsed="0.000228"/>
+</kw>
+<kw name="Sleep" owner="BuiltIn">
+<msg time="2025-07-17T09:26:15.665721" level="INFO">Slept 5 seconds.</msg>
+<arg>5s</arg>
+<doc>Pauses the test executed for the given time.</doc>
+<status status="PASS" start="2025-07-17T09:26:10.665159" elapsed="5.000852"/>
+</kw>
+<kw name="Log To Console" owner="BuiltIn">
+<arg>Capturing page screenshot...</arg>
+<doc>Logs the given message to the console.</doc>
+<status status="PASS" start="2025-07-17T09:26:15.666550" elapsed="0.000483"/>
+</kw>
+<kw name="Get Current Date" owner="DateTime">
+<msg time="2025-07-17T09:26:15.668206" level="INFO">${timestamp} = 20250717_092615</msg>
+<var>${timestamp}</var>
+<arg>result_format=%Y%m%d_%H%M%S</arg>
+<doc>Returns current local or UTC time with an optional increment.</doc>
+<status status="PASS" start="2025-07-17T09:26:15.667422" elapsed="0.000887"/>
+</kw>
+<kw name="Capture Page Screenshot" owner="SeleniumLibrary">
+<msg time="2025-07-17T09:26:15.877345" level="INFO" html="true">&lt;/td&gt;&lt;/tr&gt;&lt;tr&gt;&lt;td colspan="3"&gt;&lt;a href="screenshotsx/login_success_20250717_092615.png"&gt;&lt;img src="screenshotsx/login_success_20250717_092615.png" width="800px"&gt;&lt;/a&gt;</msg>
+<arg>filename=${SCREENSHOT_DIR}/login_success_${timestamp}.png</arg>
+<doc>Takes a screenshot of the current page and embeds it into a log file.</doc>
+<status status="PASS" start="2025-07-17T09:26:15.668753" elapsed="0.208692"/>
+</kw>
+<status status="PASS" start="2025-07-17T09:26:10.653689" elapsed="5.223847"/>
+</kw>
+<kw name="Navigate To Create Distributor">
+<kw name="Log To Console" owner="BuiltIn">
+<arg>Navigating to Sale center -&gt; Distributor... (กำลังไปยัง Sale center -&gt; Distributor...)</arg>
+<doc>Logs the given message to the console.</doc>
+<status status="PASS" start="2025-07-17T09:26:15.877985" elapsed="0.000126"/>
+</kw>
+<kw name="Wait Until Element Is Visible" owner="SeleniumLibrary">
+<arg>${SALE_CENTER_LINK}</arg>
+<arg>timeout=10s</arg>
+<doc>Waits until the element ``locator`` is visible.</doc>
+<status status="PASS" start="2025-07-17T09:26:15.878208" elapsed="0.016981"/>
+</kw>
+<kw name="Click Element" owner="SeleniumLibrary">
+<msg time="2025-07-17T09:26:15.895784" level="INFO">Clicking element 'xpath=//a[normalize-space()='Sale center']'.</msg>
+<arg>${SALE_CENTER_LINK}</arg>
+<doc>Click the element identified by ``locator``.</doc>
+<status status="PASS" start="2025-07-17T09:26:15.895442" elapsed="0.053729"/>
+</kw>
+<kw name="Log To Console" owner="BuiltIn">
+<arg>Clicked Sale center. Waiting for Distributor link to appear. (คลิก Sale center แล้ว กำลังรอลิงก์ Distributor ปรากฏ)</arg>
+<doc>Logs the given message to the console.</doc>
+<status status="PASS" start="2025-07-17T09:26:15.949343" elapsed="0.000163"/>
+</kw>
+<kw name="Wait Until Element Is Visible" owner="SeleniumLibrary">
+<arg>${DISTRIBUTOR_LINK}</arg>
+<arg>timeout=10s</arg>
+<doc>Waits until the element ``locator`` is visible.</doc>
+<status status="PASS" start="2025-07-17T09:26:15.949738" elapsed="0.014668"/>
+</kw>
+<kw name="Click Element" owner="SeleniumLibrary">
+<msg time="2025-07-17T09:26:15.964780" level="INFO">Clicking element 'xpath=//a[normalize-space()='Distributor']'.</msg>
+<arg>${DISTRIBUTOR_LINK}</arg>
+<doc>Click the element identified by ``locator``.</doc>
+<status status="PASS" start="2025-07-17T09:26:15.964573" elapsed="0.201737"/>
+</kw>
+<kw name="Log To Console" owner="BuiltIn">
+<arg>Clicked Distributor. (คลิก Distributor แล้ว)</arg>
+<doc>Logs the given message to the console.</doc>
+<status status="PASS" start="2025-07-17T09:26:16.166585" elapsed="0.001181"/>
+</kw>
+<kw name="Wait Until Page Contains Element" owner="SeleniumLibrary">
+<arg>${ADD_NEW_BUTTON}</arg>
+<arg>timeout=10s</arg>
+<doc>Waits until the element ``locator`` appears on the current page.</doc>
+<status status="PASS" start="2025-07-17T09:26:16.167915" elapsed="0.040228"/>
+</kw>
+<kw name="Log To Console" owner="BuiltIn">
+<arg>Waiting for 3 seconds before clicking Add New... (กำลังรอ 3 วินาทีก่อนคลิก Add New...)</arg>
+<doc>Logs the given message to the console.</doc>
+<status status="PASS" start="2025-07-17T09:26:16.209668" elapsed="0.000398"/>
+</kw>
+<kw name="Sleep" owner="BuiltIn">
+<msg time="2025-07-17T09:26:19.211680" level="INFO">Slept 3 seconds.</msg>
+<arg>3s</arg>
+<doc>Pauses the test executed for the given time.</doc>
+<status status="PASS" start="2025-07-17T09:26:16.210403" elapsed="3.001481"/>
+</kw>
+<kw name="Log To Console" owner="BuiltIn">
+<arg>Clicking Add New button... (กำลังคลิกปุ่ม Add New...)</arg>
+<doc>Logs the given message to the console.</doc>
+<status status="PASS" start="2025-07-17T09:26:19.212195" elapsed="0.000421"/>
+</kw>
+<kw name="Click Button" owner="SeleniumLibrary">
+<msg time="2025-07-17T09:26:19.213113" level="INFO">Clicking button 'xpath=//button[contains(., 'Add New')]'.</msg>
+<arg>${ADD_NEW_BUTTON}</arg>
+<doc>Clicks the button identified by ``locator``.</doc>
+<status status="PASS" start="2025-07-17T09:26:19.212805" elapsed="0.514212"/>
+</kw>
+<kw name="Wait Until Page Contains" owner="SeleniumLibrary">
+<arg>Create Distributor</arg>
+<arg>timeout=10s</arg>
+<doc>Waits until ``text`` appears on the current page.</doc>
+<status status="PASS" start="2025-07-17T09:26:19.727929" elapsed="0.020226"/>
+</kw>
+<kw name="Log To Console" owner="BuiltIn">
+<arg>Successfully navigated to create distributor form. (นำทางไปยังหน้าสร้างฟอร์ม Distributor สำเร็จแล้ว)</arg>
+<doc>Logs the given message to the console.</doc>
+<status status="PASS" start="2025-07-17T09:26:19.748515" elapsed="0.000422"/>
+</kw>
+<kw name="Sleep" owner="BuiltIn">
+<msg time="2025-07-17T09:26:26.752950" level="INFO">Slept 7 seconds.</msg>
+<arg>7s</arg>
+<doc>Pauses the test executed for the given time.</doc>
+<status status="PASS" start="2025-07-17T09:26:19.750112" elapsed="7.003356"/>
+</kw>
+<status status="PASS" start="2025-07-17T09:26:15.877763" elapsed="10.876081"/>
+</kw>
+<kw name="Fill Distributor Details">
+<kw name="Log To Console" owner="BuiltIn">
+<arg>Starting to fill Distributor form details... (กำลังเริ่มกรอกรายละเอียดฟอร์ม Distributor...)</arg>
+<doc>Logs the given message to the console.</doc>
+<status status="PASS" start="2025-07-17T09:26:26.757197" elapsed="0.000322"/>
+</kw>
+<kw name="Wait Until Element Is Visible" owner="SeleniumLibrary">
+<arg>${CUSTOMER_NAME_FIELD}</arg>
+<arg>timeout=10s</arg>
+<doc>Waits until the element ``locator`` is visible.</doc>
+<status status="PASS" start="2025-07-17T09:26:26.757777" elapsed="0.027481"/>
+</kw>
+<kw name="Input Text" owner="SeleniumLibrary">
+<msg time="2025-07-17T09:26:26.785873" level="INFO">Typing text 'Store Teddy Test' into text field 'id:title'.</msg>
+<arg>${CUSTOMER_NAME_FIELD}</arg>
+<arg>Store Teddy Test</arg>
+<doc>Types the given ``text`` into the text field identified by ``locator``.</doc>
+<status status="PASS" start="2025-07-17T09:26:26.785535" elapsed="0.149049"/>
+</kw>
+<kw name="Log To Console" owner="BuiltIn">
+<arg>Filled Customer Name. (กรอกชื่อลูกค้าแล้ว)</arg>
+<doc>Logs the given message to the console.</doc>
+<status status="PASS" start="2025-07-17T09:26:26.934993" elapsed="0.000899"/>
+</kw>
+<kw name="Wait Until Element Is Visible" owner="SeleniumLibrary">
+<arg>${STORE_COMPANY_NAME_FIELD}</arg>
+<arg>timeout=5s</arg>
+<doc>Waits until the element ``locator`` is visible.</doc>
+<status status="PASS" start="2025-07-17T09:26:26.936402" elapsed="0.029274"/>
+</kw>
+<kw name="Input Text" owner="SeleniumLibrary">
+<msg time="2025-07-17T09:26:26.966561" level="INFO">Typing text 'Company Store Test' into text field 'id:name'.</msg>
+<arg>${STORE_COMPANY_NAME_FIELD}</arg>
+<arg>Company Store Test</arg>
+<doc>Types the given ``text`` into the text field identified by ``locator``.</doc>
+<status status="PASS" start="2025-07-17T09:26:26.966018" elapsed="0.124462"/>
+</kw>
+<kw name="Log To Console" owner="BuiltIn">
+<arg>Filled Store/Company Name. (กรอกชื่อร้าน/บริษัทแล้ว)</arg>
+<doc>Logs the given message to the console.</doc>
+<status status="PASS" start="2025-07-17T09:26:27.090738" elapsed="0.000233"/>
+</kw>
+<kw name="Wait Until Element Is Visible" owner="SeleniumLibrary">
+<arg>${UserType}</arg>
+<arg>timeout=5s</arg>
+<doc>Waits until the element ``locator`` is visible.</doc>
+<status status="PASS" start="2025-07-17T09:26:27.091211" elapsed="0.027073"/>
+</kw>
+<kw name="Select From List By Value" owner="SeleniumLibrary">
+<msg time="2025-07-17T09:26:27.121137" level="INFO">Selecting options from selection list 'id:user_type' by value 2.</msg>
+<arg>${UserType}</arg>
+<arg>2</arg>
+<doc>Selects options from selection list ``locator`` by ``values``.</doc>
+<status status="PASS" start="2025-07-17T09:26:27.120649" elapsed="0.107507"/>
+</kw>
+<kw name="Log To Console" owner="BuiltIn">
+<arg>Selected "Store" for Distributor Type. (เลือก "Store" สำหรับประเภท Store แล้ว)</arg>
+<doc>Logs the given message to the console.</doc>
+<status status="PASS" start="2025-07-17T09:26:27.228416" elapsed="0.000246"/>
+</kw>
+<kw name="Wait Until Element Is Visible" owner="SeleniumLibrary">
+<arg>${Distributor_TYPE_DROPDOWN}</arg>
+<arg>timeout=5s</arg>
+<doc>Waits until the element ``locator`` is visible.</doc>
+<status status="PASS" start="2025-07-17T09:26:27.228803" elapsed="0.021312"/>
+</kw>
+<kw name="Select From List By Value" owner="SeleniumLibrary">
+<msg time="2025-07-17T09:26:27.250707" level="INFO">Selecting options from selection list 'id:store_type' by value 2.</msg>
+<arg>${Distributor_TYPE_DROPDOWN}</arg>
+<arg>2</arg>
+<doc>Selects options from selection list ``locator`` by ``values``.</doc>
+<status status="PASS" start="2025-07-17T09:26:27.250370" elapsed="0.053366"/>
+</kw>
+<kw name="Log To Console" owner="BuiltIn">
+<arg>Selected "Store" for Distributor Type. (เลือก "Store" สำหรับประเภท Store แล้ว)</arg>
+<doc>Logs the given message to the console.</doc>
+<status status="PASS" start="2025-07-17T09:26:27.303947" elapsed="0.000200"/>
+</kw>
+<kw name="Log To Console" owner="BuiltIn">
+<arg>Starting to fill Invoice Info... (กำลังเริ่มกรอกข้อมูลใบแจ้งหนี้...)</arg>
+<doc>Logs the given message to the console.</doc>
+<status status="PASS" start="2025-07-17T09:26:27.304350" elapsed="0.000189"/>
+</kw>
+<kw name="Wait Until Element Is Visible" owner="SeleniumLibrary">
+<arg>${TAX_COUNTRY_DROPDOWN}</arg>
+<arg>timeout=5s</arg>
+<doc>Waits until the element ``locator`` is visible.</doc>
+<status status="PASS" start="2025-07-17T09:26:27.304782" elapsed="0.018191"/>
+</kw>
+<kw name="Select From List By Label" owner="SeleniumLibrary">
+<msg time="2025-07-17T09:26:27.323457" level="INFO">Selecting options from selection list 'id:country_addressTax' by label Spain.</msg>
+<arg>${TAX_COUNTRY_DROPDOWN}</arg>
+<arg>Spain</arg>
+<doc>Selects options from selection list ``locator`` by ``labels``.</doc>
+<status status="PASS" start="2025-07-17T09:26:27.323184" elapsed="0.077731"/>
+</kw>
+<kw name="Log To Console" owner="BuiltIn">
+<arg>Selected Spain for Tax Country. (เลือกสเปนสำหรับประเทศภาษีแล้ว)</arg>
+<doc>Logs the given message to the console.</doc>
+<status status="PASS" start="2025-07-17T09:26:27.401174" elapsed="0.000181"/>
+</kw>
+<kw name="Sleep" owner="BuiltIn">
+<msg time="2025-07-17T09:26:29.403158" level="INFO">Slept 2 seconds.</msg>
+<arg>2s</arg>
+<doc>Pauses the test executed for the given time.</doc>
+<status status="PASS" start="2025-07-17T09:26:27.401467" elapsed="2.001990"/>
+</kw>
+<kw name="Wait Until Element Is Visible" owner="SeleniumLibrary">
+<arg>${TAX_PROVINCE_DROPDOWN}</arg>
+<arg>timeout=5s</arg>
+<doc>Waits until the element ``locator`` is visible.</doc>
+<status status="PASS" start="2025-07-17T09:26:29.403924" elapsed="0.023023"/>
+</kw>
+<kw name="Select From List By Label" owner="SeleniumLibrary">
+<msg time="2025-07-17T09:26:29.427461" level="INFO">Selecting options from selection list 'id:province_addressTax' by label Aragon.</msg>
+<arg>${TAX_PROVINCE_DROPDOWN}</arg>
+<arg>Aragon</arg>
+<doc>Selects options from selection list ``locator`` by ``labels``.</doc>
+<status status="PASS" start="2025-07-17T09:26:29.427169" elapsed="0.067053"/>
+</kw>
+<kw name="Log To Console" owner="BuiltIn">
+<arg>Selected Aragon for Tax Province/State. (เลือก Aragon สำหรับจังหวัด/รัฐภาษีแล้ว)</arg>
+<doc>Logs the given message to the console.</doc>
+<status status="PASS" start="2025-07-17T09:26:29.494379" elapsed="0.000159"/>
+</kw>
+<kw name="Sleep" owner="BuiltIn">
+<msg time="2025-07-17T09:26:31.495356" level="INFO">Slept 2 seconds.</msg>
+<arg>2s</arg>
+<doc>Pauses the test executed for the given time.</doc>
+<status status="PASS" start="2025-07-17T09:26:29.494849" elapsed="2.000873"/>
+</kw>
+<kw name="Wait Until Element Is Visible" owner="SeleniumLibrary">
+<arg>${TAX_CITY_DROPDOWN}</arg>
+<arg>timeout=5s</arg>
+<doc>Waits until the element ``locator`` is visible.</doc>
+<status status="PASS" start="2025-07-17T09:26:31.496272" elapsed="0.024447"/>
+</kw>
+<kw name="Select From List By Label" owner="SeleniumLibrary">
+<msg time="2025-07-17T09:26:31.521239" level="INFO">Selecting options from selection list 'id:district_addressTax' by label Provincia de Teruel.</msg>
+<arg>${TAX_CITY_DROPDOWN}</arg>
+<arg>Provincia de Teruel</arg>
+<doc>Selects options from selection list ``locator`` by ``labels``.</doc>
+<status status="PASS" start="2025-07-17T09:26:31.520946" elapsed="0.074244"/>
+</kw>
+<kw name="Log To Console" owner="BuiltIn">
+<arg>Selected Provincia de Teruel for Tax City. (เลือก Provincia de Teruel สำหรับเมืองภาษีแล้ว)</arg>
+<doc>Logs the given message to the console.</doc>
+<status status="PASS" start="2025-07-17T09:26:31.595345" elapsed="0.000157"/>
+</kw>
+<kw name="Sleep" owner="BuiltIn">
+<msg time="2025-07-17T09:26:33.596033" level="INFO">Slept 2 seconds.</msg>
+<arg>2s</arg>
+<doc>Pauses the test executed for the given time.</doc>
+<status status="PASS" start="2025-07-17T09:26:31.595705" elapsed="2.000585"/>
+</kw>
+<kw name="Wait Until Element Is Visible" owner="SeleniumLibrary">
+<arg>${TAX_DISTRICT_DROPDOWN}</arg>
+<arg>timeout=5s</arg>
+<doc>Waits until the element ``locator`` is visible.</doc>
+<status status="PASS" start="2025-07-17T09:26:33.596756" elapsed="0.030866"/>
+</kw>
+<kw name="Select From List By Label" owner="SeleniumLibrary">
+<msg time="2025-07-17T09:26:33.628392" level="INFO">Selecting options from selection list 'id:street_addressTax' by label Abejuela.</msg>
+<arg>${TAX_DISTRICT_DROPDOWN}</arg>
+<arg>Abejuela</arg>
+<doc>Selects options from selection list ``locator`` by ``labels``.</doc>
+<status status="PASS" start="2025-07-17T09:26:33.628019" elapsed="0.063961"/>
+</kw>
+<kw name="Log To Console" owner="BuiltIn">
+<arg>Selected Abejuela for Tax District/Street. (เลือก Abejuela สำหรับเขต/ถนนภาษีแล้ว)</arg>
+<doc>Logs the given message to the console.</doc>
+<status status="PASS" start="2025-07-17T09:26:33.692136" elapsed="0.000157"/>
+</kw>
+<kw name="Sleep" owner="BuiltIn">
+<msg time="2025-07-17T09:26:35.693737" level="INFO">Slept 2 seconds.</msg>
+<arg>2s</arg>
+<doc>Pauses the test executed for the given time.</doc>
+<status status="PASS" start="2025-07-17T09:26:33.692374" elapsed="2.001683"/>
+</kw>
+<kw name="Wait Until Element Is Visible" owner="SeleniumLibrary">
+<arg>${TAX_POSTAL_CODE_DROPDOWN}</arg>
+<arg>timeout=5s</arg>
+<doc>Waits until the element ``locator`` is visible.</doc>
+<status status="PASS" start="2025-07-17T09:26:35.694741" elapsed="0.021095"/>
+</kw>
+<kw name="Select From List By Label" owner="SeleniumLibrary">
+<msg time="2025-07-17T09:26:35.716407" level="INFO">Selecting options from selection list 'id:postalcode_addressTax' by label 44422 - Abejuela.</msg>
+<arg>${TAX_POSTAL_CODE_DROPDOWN}</arg>
+<arg>44422 - Abejuela</arg>
+<doc>Selects options from selection list ``locator`` by ``labels``.</doc>
+<status status="PASS" start="2025-07-17T09:26:35.716115" elapsed="0.061614"/>
+</kw>
+<kw name="Log To Console" owner="BuiltIn">
+<arg>Selected 44422 - Abejuela for Tax Postal Code. (เลือก 44422 - Abejuela สำหรับรหัสไปรษณีย์ภาษีแล้ว)</arg>
+<doc>Logs the given message to the console.</doc>
+<status status="PASS" start="2025-07-17T09:26:35.777893" elapsed="0.000152"/>
+</kw>
+<kw name="Wait Until Element Is Visible" owner="SeleniumLibrary">
+<arg>${TAX_ADDRESS_DETAILS}</arg>
+<arg>timeout=5s</arg>
+<doc>Waits until the element ``locator`` is visible.</doc>
+<status status="PASS" start="2025-07-17T09:26:35.778143" elapsed="0.015018"/>
+</kw>
+<kw name="Input Text" owner="SeleniumLibrary">
+<msg time="2025-07-17T09:26:35.794109" level="INFO">Typing text 'Test Tax Address' into text field 'add_addressTax'.</msg>
+<arg>${TAX_ADDRESS_DETAILS}</arg>
+<arg>Test Tax Address</arg>
+<doc>Types the given ``text`` into the text field identified by ``locator``.</doc>
+<status status="PASS" start="2025-07-17T09:26:35.793334" elapsed="0.081709"/>
+</kw>
+<kw name="Log To Console" owner="BuiltIn">
+<arg>Filled Tax Address Details. (กรอกรายละเอียดที่อยู่ภาษีแล้ว)</arg>
+<doc>Logs the given message to the console.</doc>
+<status status="PASS" start="2025-07-17T09:26:35.875240" elapsed="0.000166"/>
+</kw>
+<kw name="Wait Until Element Is Visible" owner="SeleniumLibrary">
+<arg>${nif}</arg>
+<arg>timeout=5s</arg>
+<doc>Waits until the element ``locator`` is visible.</doc>
+<status status="PASS" start="2025-07-17T09:26:35.875562" elapsed="0.019103"/>
+</kw>
+<kw name="Input Text" owner="SeleniumLibrary">
+<msg time="2025-07-17T09:26:35.895051" level="INFO">Typing text 'test' into text field 'id : nif'.</msg>
+<arg>${nif}</arg>
+<arg>test</arg>
+<doc>Types the given ``text`` into the text field identified by ``locator``.</doc>
+<status status="PASS" start="2025-07-17T09:26:35.894835" elapsed="0.078165"/>
+</kw>
+<kw name="Log To Console" owner="BuiltIn">
+<arg>Filled nif Details with 'test'. (กรอกรายละเอียดที่อยู่เป็น 'test' แล้ว)</arg>
+<doc>Logs the given message to the console.</doc>
+<status status="PASS" start="2025-07-17T09:26:35.973164" elapsed="0.000172"/>
+</kw>
+<kw name="Wait Until Element Is Visible" owner="SeleniumLibrary">
+<arg>${whatp}</arg>
+<arg>timeout=5s</arg>
+<doc>Waits until the element ``locator`` is visible.</doc>
+<status status="PASS" start="2025-07-17T09:26:35.973437" elapsed="0.014717"/>
+</kw>
+<kw name="Select From List By Label" owner="SeleniumLibrary">
+<msg time="2025-07-17T09:26:35.988527" level="INFO">Selecting options from selection list 'id : contact_country_code' by label +66 TH.</msg>
+<arg>${whatp}</arg>
+<arg>+66 TH</arg>
+<doc>Selects options from selection list ``locator`` by ``labels``.</doc>
+<status status="PASS" start="2025-07-17T09:26:35.988316" elapsed="0.080034"/>
+</kw>
+<kw name="Log To Console" owner="BuiltIn">
+<arg>Selected +66 for Phone Code. (เลือก +66 สำหรับรหัสโทรศัพท์แล้ว)</arg>
+<doc>Logs the given message to the console.</doc>
+<status status="PASS" start="2025-07-17T09:26:36.068532" elapsed="0.000166"/>
+</kw>
+<kw name="Wait Until Element Is Visible" owner="SeleniumLibrary">
+<arg>${whats_app}</arg>
+<arg>timeout=5s</arg>
+<doc>Waits until the element ``locator`` is visible.</doc>
+<status status="PASS" start="2025-07-17T09:26:36.068798" elapsed="0.016141"/>
+</kw>
+<kw name="Input Text" owner="SeleniumLibrary">
+<msg time="2025-07-17T09:26:36.085323" level="INFO">Typing text '0654389470' into text field 'id : whats_app'.</msg>
+<arg>${whats_app}</arg>
+<arg>0654389470</arg>
+<doc>Types the given ``text`` into the text field identified by ``locator``.</doc>
+<status status="PASS" start="2025-07-17T09:26:36.085103" elapsed="0.076683"/>
+</kw>
+<kw name="Log To Console" owner="BuiltIn">
+<arg>Selected 0654389470 for whats_app number. (เลือก 0654389470 สำหรับเบอร์โทรศัพท์แล้ว)</arg>
+<doc>Logs the given message to the console.</doc>
+<status status="PASS" start="2025-07-17T09:26:36.161995" elapsed="0.000393"/>
+</kw>
+<kw name="Wait Until Element Is Visible" owner="SeleniumLibrary">
+<arg>${email}</arg>
+<arg>timeout=5s</arg>
+<doc>Waits until the element ``locator`` is visible.</doc>
+<status status="PASS" start="2025-07-17T09:26:36.162696" elapsed="0.012157"/>
+</kw>
+<kw name="Input Text" owner="SeleniumLibrary">
+<msg time="2025-07-17T09:26:36.175653" level="INFO">Typing text 'teddydybearbear@gmail.com' into text field 'id : email'.</msg>
+<arg>${email}</arg>
+<arg>teddydybearbear@gmail.com</arg>
+<doc>Types the given ``text`` into the text field identified by ``locator``.</doc>
+<status status="PASS" start="2025-07-17T09:26:36.175150" elapsed="0.076098"/>
+</kw>
+<kw name="Log To Console" owner="BuiltIn">
+<arg>Selected teddydybearbear@gmail.com for email. (เลือก teddydybearbear@gmail.com สำหรับอีเมล)</arg>
+<doc>Logs the given message to the console.</doc>
+<status status="PASS" start="2025-07-17T09:26:36.251886" elapsed="0.000199"/>
+</kw>
+<kw name="Log To Console" owner="BuiltIn">
+<arg>Finished filling Invoice Info. (กรอกข้อมูลใบแจ้งหนี้เสร็จสิ้นแล้ว)</arg>
+<doc>Logs the given message to the console.</doc>
+<status status="PASS" start="2025-07-17T09:26:36.252206" elapsed="0.000122"/>
+</kw>
+<kw name="Sleep" owner="BuiltIn">
+<msg time="2025-07-17T09:26:39.254634" level="INFO">Slept 3 seconds.</msg>
+<arg>3s</arg>
+<doc>Pauses the test executed for the given time.</doc>
+<status status="PASS" start="2025-07-17T09:26:36.252431" elapsed="3.002316"/>
+</kw>
+<kw name="Scroll Element Into View" owner="SeleniumLibrary">
+<arg>${RECIPIENT_NAME_FIELD}</arg>
+<doc>Scrolls the element identified by ``locator`` into view.</doc>
+<status status="PASS" start="2025-07-17T09:26:39.254919" elapsed="0.274309"/>
+</kw>
+<kw name="Wait Until Element Is Enabled" owner="SeleniumLibrary">
+<arg>${RECIPIENT_NAME_FIELD}</arg>
+<arg>timeout=5s</arg>
+<doc>Waits until the element ``locator`` is enabled.</doc>
+<status status="PASS" start="2025-07-17T09:26:39.529656" elapsed="0.016357"/>
+</kw>
+<kw name="Input Text" owner="SeleniumLibrary">
+<msg time="2025-07-17T09:26:39.546363" level="INFO">Typing text 'Recipient Test Name' into text field 'id:recipient_name'.</msg>
+<arg>${RECIPIENT_NAME_FIELD}</arg>
+<arg>Recipient Test Name</arg>
+<doc>Types the given ``text`` into the text field identified by ``locator``.</doc>
+<status status="PASS" start="2025-07-17T09:26:39.546168" elapsed="0.057042"/>
+</kw>
+<kw name="Log To Console" owner="BuiltIn">
+<arg>Filled Name of the recipient. (กรอกชื่อผู้รับแล้ว)</arg>
+<doc>Logs the given message to the console.</doc>
+<status status="PASS" start="2025-07-17T09:26:39.603363" elapsed="0.000148"/>
+</kw>
+<kw name="Wait Until Element Is Visible" owner="SeleniumLibrary">
+<arg>${PHONE_CODE_DROPDOWN}</arg>
+<arg>timeout=5s</arg>
+<doc>Waits until the element ``locator`` is visible.</doc>
+<status status="PASS" start="2025-07-17T09:26:39.603599" elapsed="0.016327"/>
+</kw>
+<kw name="Select From List By Label" owner="SeleniumLibrary">
+<msg time="2025-07-17T09:26:39.620337" level="INFO">Selecting options from selection list 'id:country_code_phone' by label +66 TH.</msg>
+<arg>${PHONE_CODE_DROPDOWN}</arg>
+<arg>+66 TH</arg>
+<doc>Selects options from selection list ``locator`` by ``labels``.</doc>
+<status status="PASS" start="2025-07-17T09:26:39.620086" elapsed="0.073360"/>
+</kw>
+<kw name="Log To Console" owner="BuiltIn">
+<arg>Selected +66 for Phone Code. (เลือก +66 สำหรับรหัสโทรศัพท์แล้ว)</arg>
+<doc>Logs the given message to the console.</doc>
+<status status="PASS" start="2025-07-17T09:26:39.693599" elapsed="0.000329"/>
+</kw>
+<kw name="Wait Until Element Is Visible" owner="SeleniumLibrary">
+<arg>${Tel}</arg>
+<arg>timeout=5s</arg>
+<doc>Waits until the element ``locator`` is visible.</doc>
+<status status="PASS" start="2025-07-17T09:26:39.694308" elapsed="0.013396"/>
+</kw>
+<kw name="Input Text" owner="SeleniumLibrary">
+<msg time="2025-07-17T09:26:39.708805" level="INFO">Typing text '0631310226' into text field 'id: tel'.</msg>
+<arg>${Tel}</arg>
+<arg>0631310226</arg>
+<doc>Types the given ``text`` into the text field identified by ``locator``.</doc>
+<status status="PASS" start="2025-07-17T09:26:39.708093" elapsed="0.065618"/>
+</kw>
+<kw name="Log To Console" owner="BuiltIn">
+<arg>Selected 0631310226 for Phone number. (เลือก 0631310226 สำหรับเบอร์โทรศัพท์แล้ว)</arg>
+<doc>Logs the given message to the console.</doc>
+<status status="PASS" start="2025-07-17T09:26:39.773861" elapsed="0.000154"/>
+</kw>
+<kw name="Wait Until Element Is Visible" owner="SeleniumLibrary">
+<arg>${DELIVERY_COUNTRY_DROPDOWN}</arg>
+<arg>timeout=5s</arg>
+<doc>Waits until the element ``locator`` is visible.</doc>
+<status status="PASS" start="2025-07-17T09:26:39.774102" elapsed="0.016169"/>
+</kw>
+<kw name="Select From List By Label" owner="SeleniumLibrary">
+<msg time="2025-07-17T09:26:39.790667" level="INFO">Selecting options from selection list 'id:country_delivery1' by label Spain.</msg>
+<arg>${DELIVERY_COUNTRY_DROPDOWN}</arg>
+<arg>Spain</arg>
+<doc>Selects options from selection list ``locator`` by ``labels``.</doc>
+<status status="PASS" start="2025-07-17T09:26:39.790425" elapsed="0.065495"/>
+</kw>
+<kw name="Log To Console" owner="BuiltIn">
+<arg>Selected Spain for Delivery Country. (เลือกสเปนสำหรับประเทศจัดส่งแล้ว)</arg>
+<doc>Logs the given message to the console.</doc>
+<status status="PASS" start="2025-07-17T09:26:39.856076" elapsed="0.000145"/>
+</kw>
+<kw name="Sleep" owner="BuiltIn">
+<msg time="2025-07-17T09:26:41.857211" level="INFO">Slept 2 seconds.</msg>
+<arg>2s</arg>
+<doc>Pauses the test executed for the given time.</doc>
+<status status="PASS" start="2025-07-17T09:26:39.856352" elapsed="2.001538"/>
+</kw>
+<kw name="Wait Until Element Is Visible" owner="SeleniumLibrary">
+<arg>${DELIVERY_PROVINCE_DROPDOWN}</arg>
+<arg>timeout=5s</arg>
+<doc>Waits until the element ``locator`` is visible.</doc>
+<status status="PASS" start="2025-07-17T09:26:41.858603" elapsed="0.023212"/>
+</kw>
+<kw name="Select From List By Label" owner="SeleniumLibrary">
+<msg time="2025-07-17T09:26:41.882362" level="INFO">Selecting options from selection list 'id:province_delivery1' by label Aragon.</msg>
+<arg>${DELIVERY_PROVINCE_DROPDOWN}</arg>
+<arg>Aragon</arg>
+<doc>Selects options from selection list ``locator`` by ``labels``.</doc>
+<status status="PASS" start="2025-07-17T09:26:41.882058" elapsed="0.061580"/>
+</kw>
+<kw name="Log To Console" owner="BuiltIn">
+<arg>Selected Aragon for Delivery Province/State. (เลือก Aragon สำหรับจังหวัด/รัฐจัดส่งแล้ว)</arg>
+<doc>Logs the given message to the console.</doc>
+<status status="PASS" start="2025-07-17T09:26:41.943916" elapsed="0.000184"/>
+</kw>
+<kw name="Sleep" owner="BuiltIn">
+<msg time="2025-07-17T09:26:43.944768" level="INFO">Slept 2 seconds.</msg>
+<arg>2s</arg>
+<doc>Pauses the test executed for the given time.</doc>
+<status status="PASS" start="2025-07-17T09:26:41.944195" elapsed="2.000776"/>
+</kw>
+<kw name="Wait Until Element Is Visible" owner="SeleniumLibrary">
+<arg>${city}</arg>
+<arg>timeout=5s</arg>
+<doc>Waits until the element ``locator`` is visible.</doc>
+<status status="PASS" start="2025-07-17T09:26:43.945272" elapsed="0.015997"/>
+</kw>
+<kw name="Select From List By Label" owner="SeleniumLibrary">
+<msg time="2025-07-17T09:26:43.961618" level="INFO">Selecting options from selection list 'id:district_delivery1' by label Provincia de Teruel.</msg>
+<arg>${city}</arg>
+<arg>Provincia de Teruel</arg>
+<doc>Selects options from selection list ``locator`` by ``labels``.</doc>
+<status status="PASS" start="2025-07-17T09:26:43.961419" elapsed="0.067417"/>
+</kw>
+<kw name="Log To Console" owner="BuiltIn">
+<arg>Selected Teruel for Province . (เลือก Provincia de Teruel สำหรับ จังหวัด)</arg>
+<doc>Logs the given message to the console.</doc>
+<status status="PASS" start="2025-07-17T09:26:44.030190" elapsed="0.000581"/>
+</kw>
+<kw name="Sleep" owner="BuiltIn">
+<msg time="2025-07-17T09:26:46.032688" level="INFO">Slept 2 seconds.</msg>
+<arg>2s</arg>
+<doc>Pauses the test executed for the given time.</doc>
+<status status="PASS" start="2025-07-17T09:26:44.031974" elapsed="2.001334"/>
+</kw>
+<kw name="Wait Until Element Is Visible" owner="SeleniumLibrary">
+<arg>${street}</arg>
+<arg>timeout=5s</arg>
+<doc>Waits until the element ``locator`` is visible.</doc>
+<status status="PASS" start="2025-07-17T09:26:46.034125" elapsed="0.022610"/>
+</kw>
+<kw name="Select From List By Label" owner="SeleniumLibrary">
+<msg time="2025-07-17T09:26:46.057678" level="INFO">Selecting options from selection list 'id:street_delivery1' by label Abejuela.</msg>
+<arg>${street}</arg>
+<arg>Abejuela</arg>
+<doc>Selects options from selection list ``locator`` by ``labels``.</doc>
+<status status="PASS" start="2025-07-17T09:26:46.056967" elapsed="0.063128"/>
+</kw>
+<kw name="Log To Console" owner="BuiltIn">
+<arg>Selected Abejuela for District/Street. (เลือก Abejuela สำหรับเขต/ถนนแล้ว)</arg>
+<doc>Logs the given message to the console.</doc>
+<status status="PASS" start="2025-07-17T09:26:46.120254" elapsed="0.000155"/>
+</kw>
+<kw name="Sleep" owner="BuiltIn">
+<msg time="2025-07-17T09:26:48.121492" level="INFO">Slept 2 seconds.</msg>
+<arg>2s</arg>
+<doc>Pauses the test executed for the given time.</doc>
+<status status="PASS" start="2025-07-17T09:26:46.120495" elapsed="2.001273"/>
+</kw>
+<kw name="Scroll Element Into View" owner="SeleniumLibrary">
+<arg>${DELIVERY_POSTAL_CODE_DROPDOWN}</arg>
+<doc>Scrolls the element identified by ``locator`` into view.</doc>
+<status status="PASS" start="2025-07-17T09:26:48.122285" elapsed="0.289004"/>
+</kw>
+<kw name="Wait Until Element Is Visible" owner="SeleniumLibrary">
+<arg>${DELIVERY_POSTAL_CODE_DROPDOWN}</arg>
+<arg>timeout=5s</arg>
+<doc>Waits until the element ``locator`` is visible.</doc>
+<status status="PASS" start="2025-07-17T09:26:48.411680" elapsed="0.019414"/>
+</kw>
+<kw name="Select From List By Label" owner="SeleniumLibrary">
+<msg time="2025-07-17T09:26:48.431616" level="INFO">Selecting options from selection list 'id:postalcode_delivery1' by label 44422 - Abejuela.</msg>
+<arg>${DELIVERY_POSTAL_CODE_DROPDOWN}</arg>
+<arg>44422 - Abejuela</arg>
+<doc>Selects options from selection list ``locator`` by ``labels``.</doc>
+<status status="PASS" start="2025-07-17T09:26:48.431311" elapsed="0.067217"/>
+</kw>
+<kw name="Log To Console" owner="BuiltIn">
+<arg>Selected 44422 - Abejuela for Postal Code. (เลือก 44422 - Abejuela สำหรับรหัสไปรษณีย์แล้ว)</arg>
+<doc>Logs the given message to the console.</doc>
+<status status="PASS" start="2025-07-17T09:26:48.498690" elapsed="0.000312"/>
+</kw>
+<kw name="Wait Until Element Is Visible" owner="SeleniumLibrary">
+<arg>${SHIPPING_FEE_CHECKBOX}</arg>
+<arg>timeout=5s</arg>
+<doc>Waits until the element ``locator`` is visible.</doc>
+<status status="PASS" start="2025-07-17T09:26:48.499296" elapsed="0.015233"/>
+</kw>
+<kw name="Click Element" owner="SeleniumLibrary">
+<msg time="2025-07-17T09:26:48.514952" level="INFO">Clicking element 'id:shipping_fee_status_delivery1'.</msg>
+<arg>${SHIPPING_FEE_CHECKBOX}</arg>
+<doc>Click the element identified by ``locator``.</doc>
+<status status="PASS" start="2025-07-17T09:26:48.514734" elapsed="0.055873"/>
+</kw>
+<kw name="Log To Console" owner="BuiltIn">
+<arg>Ticked Shipping Fee checkbox. (ติ๊กช่องทำเครื่องหมายค่าจัดส่งแล้ว)</arg>
+<doc>Logs the given message to the console.</doc>
+<status status="PASS" start="2025-07-17T09:26:48.571402" elapsed="0.000632"/>
+</kw>
+<kw name="Wait Until Element Is Visible" owner="SeleniumLibrary">
+<arg>${SHIPPING_FEE_INPUT}</arg>
+<arg>timeout=5s</arg>
+<doc>Waits until the element ``locator`` is visible.</doc>
+<status status="PASS" start="2025-07-17T09:26:48.572339" elapsed="0.015820"/>
+</kw>
+<kw name="Input Text" owner="SeleniumLibrary">
+<msg time="2025-07-17T09:26:48.588538" level="INFO">Typing text '50' into text field 'id:shipping_fee_delivery1'.</msg>
+<arg>${SHIPPING_FEE_INPUT}</arg>
+<arg>50</arg>
+<doc>Types the given ``text`` into the text field identified by ``locator``.</doc>
+<status status="PASS" start="2025-07-17T09:26:48.588324" elapsed="0.096766"/>
+</kw>
+<kw name="Log To Console" owner="BuiltIn">
+<arg>Filled Shipping Fee as 50. (กรอกค่าจัดส่งเป็น 50 แล้ว)</arg>
+<doc>Logs the given message to the console.</doc>
+<status status="PASS" start="2025-07-17T09:26:48.685798" elapsed="0.001260"/>
+</kw>
+<kw name="Wait Until Element Is Visible" owner="SeleniumLibrary">
+<arg>${DELIVERY_ADDRESS_DETAILS}</arg>
+<arg>timeout=5s</arg>
+<doc>Waits until the element ``locator`` is visible.</doc>
+<status status="PASS" start="2025-07-17T09:26:48.687610" elapsed="0.015313"/>
+</kw>
+<kw name="Input Text" owner="SeleniumLibrary">
+<msg time="2025-07-17T09:26:48.703304" level="INFO">Typing text 'test' into text field 'id:add_delivery1'.</msg>
+<arg>${DELIVERY_ADDRESS_DETAILS}</arg>
+<arg>test</arg>
+<doc>Types the given ``text`` into the text field identified by ``locator``.</doc>
+<status status="PASS" start="2025-07-17T09:26:48.703090" elapsed="0.074788"/>
+</kw>
+<kw name="Log To Console" owner="BuiltIn">
+<arg>Filled Address Details with 'test'. (กรอกรายละเอียดที่อยู่เป็น 'test' แล้ว)</arg>
+<doc>Logs the given message to the console.</doc>
+<status status="PASS" start="2025-07-17T09:26:48.778319" elapsed="0.000437"/>
+</kw>
+<kw name="Wait Until Element Is Visible" owner="SeleniumLibrary">
+<arg>${warehouse}</arg>
+<arg>timeout=5s</arg>
+<doc>Waits until the element ``locator`` is visible.</doc>
+<status status="PASS" start="2025-07-17T09:26:48.779158" elapsed="0.022743"/>
+</kw>
+<kw name="Select From List By Label" owner="SeleniumLibrary">
+<msg time="2025-07-17T09:26:48.802403" level="INFO">Selecting options from selection list 'id : warehouse_id' by label VMC.</msg>
+<arg>${warehouse}</arg>
+<arg>VMC</arg>
+<doc>Selects options from selection list ``locator`` by ``labels``.</doc>
+<status status="PASS" start="2025-07-17T09:26:48.802119" elapsed="0.142872"/>
+</kw>
+<kw name="Log To Console" owner="BuiltIn">
+<arg>Filled Warehouse with 'VMC'. (กรอกรายละเอียดโกดังเป็น 'VMC' แล้ว)</arg>
+<doc>Logs the given message to the console.</doc>
+<status status="PASS" start="2025-07-17T09:26:48.945768" elapsed="0.000533"/>
+</kw>
+<kw name="Wait Until Element Is Visible" owner="SeleniumLibrary">
+<arg>${nots}</arg>
+<arg>timeout=5s</arg>
+<doc>Waits until the element ``locator`` is visible.</doc>
+<status status="PASS" start="2025-07-17T09:26:48.946600" elapsed="0.035192"/>
+</kw>
+<kw name="Input Text" owner="SeleniumLibrary">
+<msg time="2025-07-17T09:26:48.982595" level="INFO">Typing text 'test' into text field 'id : nots'.</msg>
+<arg>${nots}</arg>
+<arg>test</arg>
+<doc>Types the given ``text`` into the text field identified by ``locator``.</doc>
+<status status="PASS" start="2025-07-17T09:26:48.982138" elapsed="0.170456"/>
+</kw>
+<kw name="Log To Console" owner="BuiltIn">
+<arg>Filled Note with 'test'. (กรอกรายละเอียดโน๊ต 'test' แล้ว)</arg>
+<doc>Logs the given message to the console.</doc>
+<status status="PASS" start="2025-07-17T09:26:49.153299" elapsed="0.000449"/>
+</kw>
+<kw name="Log To Console" owner="BuiltIn">
+<arg>Clicking Submit button... (กำลังคลิกปุ่ม Submit...)</arg>
+<doc>Logs the given message to the console.</doc>
+<status status="PASS" start="2025-07-17T09:26:49.154002" elapsed="0.000291"/>
+</kw>
+<kw name="Scroll Element Into View" owner="SeleniumLibrary">
+<arg>${SUBMIT_BUTTON}</arg>
+<doc>Scrolls the element identified by ``locator`` into view.</doc>
+<status status="PASS" start="2025-07-17T09:26:49.154623" elapsed="0.310617"/>
+</kw>
+<kw name="Wait Until Element Is Visible" owner="SeleniumLibrary">
+<arg>${SUBMIT_BUTTON}</arg>
+<arg>timeout=5s</arg>
+<doc>Waits until the element ``locator`` is visible.</doc>
+<status status="PASS" start="2025-07-17T09:26:49.465398" elapsed="0.010614"/>
+</kw>
+<kw name="Click Button" owner="SeleniumLibrary">
+<msg time="2025-07-17T09:26:49.476364" level="INFO">Clicking button 'xpath=//button[@type='submit' and text()='Submit']'.</msg>
+<arg>${SUBMIT_BUTTON}</arg>
+<doc>Clicks the button identified by ``locator``.</doc>
+<status status="PASS" start="2025-07-17T09:26:49.476169" elapsed="0.183446"/>
+</kw>
+<kw name="Log To Console" owner="BuiltIn">
+<arg>Submitted Distributor form. (ส่งฟอร์ม Distributor แล้ว)</arg>
+<doc>Logs the given message to the console.</doc>
+<status status="PASS" start="2025-07-17T09:26:49.659939" elapsed="0.000176"/>
+</kw>
+<kw name="Sleep" owner="BuiltIn">
+<msg time="2025-07-17T09:26:54.661306" level="INFO">Slept 5 seconds.</msg>
+<arg>5s</arg>
+<doc>Pauses the test executed for the given time.</doc>
+<status status="PASS" start="2025-07-17T09:26:49.660557" elapsed="5.001028"/>
+</kw>
+<kw name="Log To Console" owner="BuiltIn">
+<arg>Task completed. (งานเสร็จสมบูรณ์แล้ว)</arg>
+<doc>Logs the given message to the console.</doc>
+<status status="PASS" start="2025-07-17T09:26:54.662016" elapsed="0.000486"/>
+</kw>
+<kw name="Sleep" owner="BuiltIn">
+<msg time="2025-07-17T09:27:04.664146" level="INFO">Slept 10 seconds.</msg>
+<arg>10s</arg>
+<doc>Pauses the test executed for the given time.</doc>
+<status status="PASS" start="2025-07-17T09:26:54.662882" elapsed="10.001968"/>
+</kw>
+<status status="PASS" start="2025-07-17T09:26:26.756594" elapsed="37.908961"/>
+</kw>
+<kw name="Close Browser" owner="SeleniumLibrary" type="TEARDOWN">
+<doc>Closes the current browser.</doc>
+<status status="PASS" start="2025-07-17T09:27:04.666580" elapsed="0.104881"/>
+</kw>
+<tag>Distributor</tag>
+<status status="PASS" start="2025-07-17T09:26:05.516442" elapsed="59.255145"/>
+</test>
+<status status="PASS" start="2025-07-17T09:26:05.338546" elapsed="59.433507"/>
+</suite>
+<statistics>
+<total>
+<stat pass="1" fail="0" skip="0">All Tests</stat>
+</total>
+<tag>
+<stat pass="1" fail="0" skip="0">Distributor</stat>
+</tag>
+<suite>
+<stat name="Store" id="s1" pass="1" fail="0" skip="0">Store</stat>
+</suite>
+</statistics>
+<errors>
+</errors>
+</robot>
