@@ -7,9 +7,9 @@ Library    DateTime
 
 *** Variables ***
 ${BROWSER}                 Chrome
-${URL}                     https://hr.jumbo-mx.com/
-${USERNAME}                99901
-${PASSWORD}                AdminMXIT$%$@!@2025
+${URL}                     oway-x-mex-training.possefy.co.th
+${USERNAME}                #Your_User_Name
+${PASSWORD}                #Your_Pass_Word
 ${STAFF_MENU}              xpath=//span[normalize-space(.)="Staff"]
 ${STAFF_CREATE}            xpath=//a[contains(@href,"/staff/create")]
 ${OTP_PAGE_IDENTIFIER}     xpath=//h5[text()='Send OTP With Email']
