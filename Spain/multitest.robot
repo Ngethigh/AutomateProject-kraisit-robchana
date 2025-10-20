@@ -4,8 +4,6 @@ Library    OperatingSystem
 Library    DateTime
 Library    String
 Library    Collections
-Library    excel_logger.py
-Library    ImapLibrary2
 
 Suite Setup       Setup Test Suite
 
@@ -23,7 +21,7 @@ ${INVALID_PASSWORD}     WrongPassword1234!
 
 # --- ไฟล์และโฟลเดอร์ ---
 ${SCREENSHOT_DIR}       screenshots_results
-${EXCEL_REPORT_FILE}    Spain_Login_Test_Report.xlsx
+${LOG_FILE}             test_results.log
 
 # --- Locators ---
 ${USERNAME_FIELD}       id:email
@@ -35,9 +33,10 @@ ${DASHBOARD_ELEMENT}    xpath=//*[contains(text(),'Dashboard') or contains(@clas
 *** Keywords ***
 Setup Test Suite
     Create Directory    ${SCREENSHOT_DIR}
-    @{header}=    Create List    Run Number    Scenario    Start Time    Duration (s)    Username    Password    Expected Outcome    Actual Result    Screenshot Path
-    excel_logger.setup_report    ${EXCEL_REPORT_FILE}    ${header}
-
+    ${separator}=    Set Variable    ${50 * '='}
+    Create File    ${LOG_FILE}    Robot Framework Login Test Results\n${separator}\n
+    ${current_time}=    Get Current Date
+    Append To File    ${LOG_FILE}    Start Time: ${current_time}\n\n
 
 Setup Run Directory
     [Arguments]    ${run_num}    ${scenario_name}
@@ -64,6 +63,27 @@ Handle Login Failure
     ELSE
         RETURN    FAIL    ${screenshot}    "ข้อความผิดพลาดไม่ตรง预期: ${actual_text}"
     END
+
+Log Result To File
+    [Arguments]    ${run_num}    ${scenario}    ${start_time}    ${duration}    
+    ...            ${user}    ${pass}    ${expected}    ${status}    ${screenshot}    ${message}
+    
+    ${separator}=    Set Variable    ${50 * '-'}
+    ${log_entry}=    Catenate    SEPARATOR=\n    \
+    ...    Run Number: ${run_num}    \
+    ...    Scenario: ${scenario}    \
+    ...    Start Time: ${start_time}    \
+    ...    Duration: ${duration} seconds    \
+    ...    Username: ${user}    \
+    ...    Password: ${pass}    \
+    ...    Expected: ${expected}    \
+    ...    Result: ${status}    \
+    ...    Message: ${message}    \
+    ...    Screenshot: ${screenshot}    \
+    ...    ${separator}
+    
+    Append To File    ${LOG_FILE}    ${log_entry}\n
+    Log To Console    ${log_entry}
 
 Perform Login And Verify
     [Arguments]    ${run_num}    ${run_path}    ${user}    ${pass}    ${expected_outcome}
@@ -96,30 +116,12 @@ Perform Login And Verify
         ${screenshot}=    Capture Page Screenshot    filename=${run_path}/99_EXCEPTION.png
         ${status}=    Set Variable    FAIL
     FINALLY
-        ${duration}=    Subtract Date From Date    ${Get Current Date}    ${start_time}
-        Log Result To Excel    ${run_num}    ${expected_outcome}    ${start_time}    
-        ...    ${duration}    ${user}    ${pass}    ${status}    ${screenshot}    ${error_msg}
+        ${end_time}=    Get Current Date
+        ${duration}=    Subtract Date From Date    ${end_time}    ${start_time}
+        Log Result To File    ${run_num}    ${expected_outcome}    ${start_time}    
+        ...    ${duration}    ${user}    ${pass}    ${expected_outcome}    ${status}    ${screenshot}    ${error_msg}
         Close Browser
     END
-
-Log Result To Excel
-    [Arguments]    ${run_num}    ${scenario}    ${start_time}    ${duration}    
-    ...            ${user}    ${pass}    ${expected}    ${status}    ${message}    ${screenshot}
-    
-    # แปลงข้อมูลให้ตรงกับหัวข้อ
-    @{row_data}=    Create List
-    ...    ${run_num}                  # Run Number
-    ...    ${scenario}                # Scenario
-    ...    ${start_time}              # Start Time
-    ...    ${duration}                # Duration (s)
-    ...    ${user}                    # Username
-    ...    ${pass}                    # Password
-    ...    ${expected}                # Expected
-    ...    ${status}                  # Actual Result
-    ...    ${message}                 # Message
-    ...    ${screenshot}              # Screenshot Path
-    
-    Append Row    ${EXCEL_REPORT_FILE}    ${row_data}
 
 *** Test Cases ***
 Run All Login Scenarios Repeatedly
@@ -134,21 +136,26 @@ Run All Login Scenarios Repeatedly
         ...    Perform Login And Verify    ${run_num}    ${run_path_success}    
         ...    ${VALID_USERNAME}    ${VALID_PASSWORD}    SUCCESS
         IF    not ${status}    
-        ...    Log    ล็อกอินสำเร็จล้มเหลวในรอบที่ ${run_num}    level=WARN
+        ...    Log To Console    ล็อกอินสำเร็จล้มเหลวในรอบที่ ${run_num}
         
         # Scenario 2: ชื่อผู้ใช้ผิด
         ${run_path_invalid_user}=    Setup Run Directory    ${run_num}    INVALID_USER
         ${status}=    Run Keyword And Return Status    
         ...    Perform Login And Verify    ${run_num}    ${run_path_invalid_user}    
-        ...    ${INVALID_USERNAME}    ${VALID_PASSWORD}    INVALID_USER
+        ...    ${INVALID_USERNAME}    ${VALID_PASSWORD}    FAIL
         IF    not ${status}    
-        ...    Log    ชื่อผู้ใช้ผิดล้มเหลวในรอบที่ ${run_num}    level=WARN
+        ...    Log To Console    ชื่อผู้ใช้ผิดล้มเหลวในรอบที่ ${run_num}
         
         # Scenario 3: รหัสผ่านผิด
         ${run_path_invalid_pass}=    Setup Run Directory    ${run_num}    INVALID_PASS
         ${status}=    Run Keyword And Return Status    
         ...    Perform Login And Verify    ${run_num}    ${run_path_invalid_pass}    
-        ...    ${VALID_USERNAME}    ${INVALID_PASSWORD}    INVALID_PASS
+        ...    ${VALID_USERNAME}    ${INVALID_PASSWORD}    FAIL
         IF    not ${status}    
-        ...    Log    รหัสผ่านผิดล้มเหลวในรอบที่ ${run_num}    level=WARN
+        ...    Log To Console    รหัสผ่านผิดล้มเหลวในรอบที่ ${run_num}
     END
+    
+    # สรุปผลการทดสอบ
+    Log To Console    \n\nการทดสอบเสร็จสิ้น
+    Log To Console    ผลลัพธ์ถูกบันทึกใน: ${LOG_FILE}
+    Log To Console    Screenshots ถูกบันทึกใน: ${SCREENSHOT_DIR}
