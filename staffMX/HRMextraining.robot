@@ -8,8 +8,8 @@ Library    DateTime
 *** Variables ***
 ${BROWSER}                 Chrome
 ${URL}                     https://oway-x-mex-training.possefy.co.th/
-${USERNAME}                99901
-${PASSWORD}                AdminMXITTraining@!@2025
+${USERNAME}                #Your_UserName
+${PASSWORD}                #Your_Pass_word
 ${STAFF_MENU}              xpath=//span[normalize-space(.)="Staff"]
 ${STAFF_CREATE}            xpath=//a[contains(@href,"/staff/create")]
 ${OTP_PAGE_IDENTIFIER}     xpath=//h5[text()='Send OTP With Email']
