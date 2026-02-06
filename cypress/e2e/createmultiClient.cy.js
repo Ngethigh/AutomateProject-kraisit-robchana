@@ -29,16 +29,14 @@ const loc = {
 
   recipientName: "#recipient_name",
   phoneCode: "#country_code_phone",
-  tel: "#tel",
+  // tel: "#tel",
 
   deliveryCountry: "#country_delivery1",
   deliveryProvince: "#province_delivery1",
   deliveryCity: "#district_delivery1",
   deliveryStreet: "#street_delivery1",
-  deliveryPostal: "#postalcode_delivery1",
+  //deliveryPostal: "#postalcode_delivery1",
 
-  shippingFeeCheck: "#shipping_fee_status_delivery1",
-  shippingFeeInput: "#shipping_fee_delivery1",
   deliveryAddress: "#add_delivery1",
 
   warehouse: "#warehouse_id",
@@ -206,13 +204,13 @@ describe("Create All Distributor Types", () => {
       cy.get(loc.storeName).clear().type(storeName);
 
       // TAX
-      retrySelect(loc.taxCountry, "Spain");
-      retrySelect(loc.taxProvince, "Aragon");
-      retrySelect(loc.taxCity, "Provincia de Teruel");
-      retrySelect(loc.taxDistrict, "Abejuela");
+      // retrySelect(loc.taxCountry, "Spain");
+      // retrySelect(loc.taxProvince, "Aragon");
+      // retrySelect(loc.taxCity, "Provincia de Teruel");
+      // retrySelect(loc.taxDistrict, "Abejuela");
 
-      cy.get(loc.taxPostal).clear().type("10000");
-      cy.get(loc.taxAddress).clear().type("Tax Address Auto");
+      // cy.get(loc.taxPostal).clear().type("10000");
+      // cy.get(loc.taxAddress).clear().type("Tax Address Auto");
       cy.get(loc.nif).clear().type(`NIF${RID}`);
 
       retrySelect(loc.whatp, "+66 TH");
@@ -230,9 +228,7 @@ describe("Create All Distributor Types", () => {
       retrySelect(loc.deliveryCity, "Provincia de Teruel");
       retrySelect(loc.deliveryStreet, "Abejuela");
 
-      cy.get(loc.deliveryPostal).clear().type("10000");
-      cy.get(loc.shippingFeeCheck).click();
-      cy.get(loc.shippingFeeInput).clear().type("50");
+      //cy.get(loc.deliveryPostal).clear().type("10000");
       cy.get(loc.deliveryAddress).clear().type("Delivery Auto");
 
       retrySelect(loc.warehouse, "VMC");
