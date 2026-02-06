@@ -1,0 +1,121 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<robot generator="Robot 7.3 (Python 3.13.4 on darwin)" generated="2026-02-06T14:16:10.037825" rpa="false" schemaversion="5">
+<suite id="s1" name="Linear Registration" source="/Applications/XAMPP/xamppfiles/htdocs/Robot-Project/studyrobot/futureskill-robot-test/testcases/linear_registration.robot">
+<test id="s1-t1" name="Register Future Skill Member" line="15">
+<kw name="Open Browser" owner="SeleniumLibrary">
+<msg time="2026-02-06T14:16:10.695800" level="INFO">Opening browser 'chrome' to base url 'https://futureskill.co/'.</msg>
+<arg>${URL}</arg>
+<arg>${BROWSER}</arg>
+<doc>Opens a new browser instance to the optional ``url``.</doc>
+<status status="PASS" start="2026-02-06T14:16:10.692966" elapsed="8.798069"/>
+</kw>
+<kw name="Maximize Browser Window" owner="SeleniumLibrary">
+<doc>Maximizes current browser window.</doc>
+<status status="PASS" start="2026-02-06T14:16:19.493976" elapsed="0.705735"/>
+</kw>
+<kw name="Wait Until Page Contains Element" owner="SeleniumLibrary">
+<arg>xpath=//button[contains(text(),'สมัครสมาชิก')]</arg>
+<arg>timeout=10s</arg>
+<doc>Waits until the element ``locator`` appears on the current page.</doc>
+<status status="PASS" start="2026-02-06T14:16:20.200751" elapsed="0.270206"/>
+</kw>
+<kw name="Click Button" owner="SeleniumLibrary">
+<msg time="2026-02-06T14:16:20.471948" level="INFO">Clicking button 'xpath=//button[contains(text(),'สมัครสมาชิก')]'.</msg>
+<arg>xpath=//button[contains(text(),'สมัครสมาชิก')]</arg>
+<doc>Clicks the button identified by ``locator``.</doc>
+<status status="PASS" start="2026-02-06T14:16:20.471532" elapsed="6.939791"/>
+</kw>
+<kw name="Wait Until Element Is Visible" owner="SeleniumLibrary">
+<arg>name=email</arg>
+<arg>timeout=10s</arg>
+<doc>Waits until the element ``locator`` is visible.</doc>
+<status status="PASS" start="2026-02-06T14:16:27.411889" elapsed="0.054254"/>
+</kw>
+<kw name="Input Text" owner="SeleniumLibrary">
+<msg time="2026-02-06T14:16:27.466710" level="INFO">Typing text 'robchanakrasit@gmail.com' into text field 'name=email'.</msg>
+<arg>name=email</arg>
+<arg>${email}</arg>
+<doc>Types the given ``text`` into the text field identified by ``locator``.</doc>
+<status status="PASS" start="2026-02-06T14:16:27.466374" elapsed="0.580950"/>
+</kw>
+<kw name="Input Text" owner="SeleniumLibrary">
+<msg time="2026-02-06T14:16:28.048353" level="INFO">Typing text 'kraisit' into text field 'name=firstName'.</msg>
+<arg>name=firstName</arg>
+<arg>${FirstNAME}</arg>
+<doc>Types the given ``text`` into the text field identified by ``locator``.</doc>
+<status status="PASS" start="2026-02-06T14:16:28.047892" elapsed="0.135598"/>
+</kw>
+<kw name="Input Text" owner="SeleniumLibrary">
+<msg time="2026-02-06T14:16:28.184494" level="INFO">Typing text 'robchana' into text field 'name=lastName'.</msg>
+<arg>name=lastName</arg>
+<arg>${LastName}</arg>
+<doc>Types the given ``text`` into the text field identified by ``locator``.</doc>
+<status status="PASS" start="2026-02-06T14:16:28.183917" elapsed="0.147446"/>
+</kw>
+<kw name="Input Text" owner="SeleniumLibrary">
+<msg time="2026-02-06T14:16:28.332643" level="INFO">Typing text '0647938698' into text field 'name=phoneNumber'.</msg>
+<arg>name=phoneNumber</arg>
+<arg>${Phone}</arg>
+<doc>Types the given ``text`` into the text field identified by ``locator``.</doc>
+<status status="PASS" start="2026-02-06T14:16:28.332052" elapsed="0.145897"/>
+</kw>
+<kw name="Input Text" owner="SeleniumLibrary">
+<msg time="2026-02-06T14:16:28.478931" level="INFO">Typing text 'Koon12345' into text field 'name=newPassword'.</msg>
+<arg>name=newPassword</arg>
+<arg>${PASSWORD}</arg>
+<doc>Types the given ``text`` into the text field identified by ``locator``.</doc>
+<status status="PASS" start="2026-02-06T14:16:28.478469" elapsed="0.151186"/>
+</kw>
+<kw name="Input Text" owner="SeleniumLibrary">
+<msg time="2026-02-06T14:16:28.630753" level="INFO">Typing text 'Koon12345' into text field 'name=confirmPassword'.</msg>
+<arg>name=confirmPassword</arg>
+<arg>${APPASSWORD}</arg>
+<doc>Types the given ``text`` into the text field identified by ``locator``.</doc>
+<status status="PASS" start="2026-02-06T14:16:28.630279" elapsed="0.113319"/>
+</kw>
+<kw name="Wait Until Page Contains Element" owner="SeleniumLibrary">
+<arg>name=consent</arg>
+<arg>timeout=10s</arg>
+<doc>Waits until the element ``locator`` appears on the current page.</doc>
+<status status="PASS" start="2026-02-06T14:16:28.743991" elapsed="0.016845"/>
+</kw>
+<kw name="Click Element" owner="SeleniumLibrary">
+<msg time="2026-02-06T14:16:28.761597" level="INFO">Clicking element 'name=consent'.</msg>
+<arg>name=consent</arg>
+<doc>Click the element identified by ``locator``.</doc>
+<status status="PASS" start="2026-02-06T14:16:28.761225" elapsed="0.207116"/>
+</kw>
+<kw name="Click Button" owner="SeleniumLibrary">
+<msg time="2026-02-06T14:16:28.969746" level="INFO">Clicking button 'xpath=//button[contains(text(),'สมัครสมาชิก')]'.</msg>
+<arg>xpath=//button[contains(text(),'สมัครสมาชิก')]</arg>
+<doc>Clicks the button identified by ``locator``.</doc>
+<status status="PASS" start="2026-02-06T14:16:28.969134" elapsed="0.309660"/>
+</kw>
+<kw name="Wait Until Page Contains" owner="SeleniumLibrary">
+<arg>ระบบได้ส่งรหัส OTP ไปยังเบอร์โทรศัพท์</arg>
+<arg>timeout=10s</arg>
+<doc>Waits until ``text`` appears on the current page.</doc>
+<status status="PASS" start="2026-02-06T14:16:29.279948" elapsed="1.358989"/>
+</kw>
+<kw name="Close Browser" owner="SeleniumLibrary" type="TEARDOWN">
+<doc>Closes the current browser.</doc>
+<status status="PASS" start="2026-02-06T14:16:30.639645" elapsed="0.669202"/>
+</kw>
+<doc>Test case for registering a new member on Future Skill</doc>
+<status status="PASS" start="2026-02-06T14:16:10.686182" elapsed="20.623032"/>
+</test>
+<status status="PASS" start="2026-02-06T14:16:10.045091" elapsed="21.265805"/>
+</suite>
+<statistics>
+<total>
+<stat pass="1" fail="0" skip="0">All Tests</stat>
+</total>
+<tag>
+</tag>
+<suite>
+<stat name="Linear Registration" id="s1" pass="1" fail="0" skip="0">Linear Registration</stat>
+</suite>
+</statistics>
+<errors>
+</errors>
+</robot>
